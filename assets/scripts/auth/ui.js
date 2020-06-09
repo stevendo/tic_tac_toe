@@ -3,7 +3,6 @@
 const store = require('./../store')
 
 const createSuccess = function (responseData) {
-
   $('form').trigger('reset')
 
   $('#message').text('Sign up successfully!')
@@ -48,10 +47,11 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (responseData) {
   $('form').trigger('reset')
-  // messaging:
+
   $('#message').text('Sign Out Successful!')
   $('#message').show()
   $('#message').removeClass().addClass('success')
+  $('#game-board').hide()
 }
 
 const signOutFailure = function () {
@@ -59,6 +59,20 @@ const signOutFailure = function () {
   $('#message').text('Sign Out Failed :(')
   $('#message').show().removeClass().addClass('failure')
 }
+
+// const startNewGameSuccess = function (responseData) {
+//   $('form').trigger('reset')
+//
+//   $('#message').text('New Game Started!')
+//   $('#message').show()
+//   $('#message').removeClass().addClass('success')
+// }
+
+// const startNewGameFailure = function () {
+//   $('form').trigger('reset')
+//   $('#message').text('New Game Failed')
+//   $('#message').show().removeClass().addClass('failure')
+// }
 
 module.exports = {
   createSuccess: createSuccess,
@@ -69,4 +83,6 @@ module.exports = {
   changePasswordFailure: changePasswordFailure,
   signOutSuccess: signOutSuccess,
   signOutFailure: signOutFailure
+  // startNewGameSuccess: startNewGameSuccess,
+  // startNewGameFailure: startNewGameFailure
 }

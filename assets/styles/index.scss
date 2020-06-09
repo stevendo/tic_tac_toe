@@ -1,1 +1,54 @@
 @import '~bootstrap/scss/bootstrap';
+
+$alt-color: $cyan;
+$body-bg-color: $gray-200;
+$font-color: $light;
+
+// .box {
+//   align-items: center;
+//   background-color: $secondary;
+//   border: 2px solid $white;
+//   color: $font-color;
+//   display: flex;
+//   // height: 80px;
+//   justify-content: center;
+//   display: flex;
+//   display: -webkit-flex;
+//   flex-wrap: wrap;
+// }
+
+.grid {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 60vh;
+    height: 80vw;
+    max-height: 60vh;
+    font-size: 1rem;
+}
+.row {
+    display: flex;
+}
+.square {
+    background: navy;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    flex: 1 0 auto;
+    position: relative;
+}
+.square:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
+}
+.square .content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

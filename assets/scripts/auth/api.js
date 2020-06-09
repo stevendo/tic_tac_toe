@@ -4,7 +4,7 @@ const store = require('./../store')
 
 const signUp = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/sign-up/', // this can be the url from doc -
+    url: config.apiUrl + '/sign-up/',
     method: 'POST',
     data: {
       credentials: {
@@ -30,7 +30,6 @@ const signIn = function (formData) {
 }
 
 const changePassword = function(formData) {
-console.log(formData)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
@@ -47,7 +46,6 @@ console.log(formData)
 }
 
 const signOut = function(formData) {
-console.log(formData)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
@@ -57,9 +55,21 @@ console.log(formData)
   })
 }
 
+// const startNewGame = function(formData) {
+//   return $.ajax({
+//     method: 'post',
+//     url: config.apiUrl + '/games',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {}
+//   })
+// }
+
 module.exports = {
   signUp: signUp,
   signIn: signIn,
   changePassword: changePassword,
   signOut: signOut
+  // startNewGame: startNewGame
 }
