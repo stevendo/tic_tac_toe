@@ -11,6 +11,7 @@ const startNewGameSuccess = function (responseData) {
   $('#message').show()
   $('#message').removeClass().addClass('success')
   $('#game-board').show()
+  $('#start-new-game').hide()
 }
 
 const startNewGameFailure = function () {
@@ -21,11 +22,26 @@ const startNewGameFailure = function () {
 
 const clickTile = function () {
   $(event.target).text('x')
+}
 
+const gameUpdateSuccess = function (responseData) {
+  $('form').trigger('reset')
+
+  $('#message').text('Game Updated!')
+  $('#message').show()
+  $('#message').removeClass().addClass('success')
+}
+
+const gameUpdateFailure = function () {
+  $('form').trigger('reset')
+  $('#message').text('Game not Updated')
+  $('#message').show().removeClass().addClass('failure')
 }
 
 module.exports = {
   startNewGameSuccess: startNewGameSuccess,
   startNewGameFailure: startNewGameFailure,
-  clickTile: clickTile
+  clickTile: clickTile,
+  gameUpdateSuccess: gameUpdateSuccess,
+  gameUpdateFailure: gameUpdateFailure
 }
