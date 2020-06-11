@@ -2,8 +2,6 @@
 
 const store = require('./../store')
 
-
-
 const startNewGameSuccess = function (responseData) {
   $('form').trigger('reset')
 
@@ -12,8 +10,8 @@ const startNewGameSuccess = function (responseData) {
   $('#message').removeClass().addClass('success')
   $('#game-board').show()
   // $('#start-new-game').hide()
-
-  console.log(responseData, 'what is this?')
+  // console.log(responseData, 'what is this?')
+  store.game = responseData.game
 }
 
 const startNewGameFailure = function () {
@@ -32,6 +30,7 @@ const gameUpdateSuccess = function (responseData) {
   $('#message').text('Game Updated!')
   $('#message').show()
   $('#message').removeClass().addClass('success')
+  console.log(responseData, 'identify')
 }
 
 const gameUpdateFailure = function () {

@@ -16,7 +16,7 @@ const startNewGame = function(formData) {
 const gameUpdate = function (gamePiece, gameIndex) {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/games' + store.game._id,
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },

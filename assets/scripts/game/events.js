@@ -19,6 +19,7 @@ const onStartNewGame = function (event) {
 let currentMove = 'X' // Tracks current move
 let gamePiece         // Parameter for game move
 let gameIndex         // Parameter for game tile
+let numTurns          // Turn count
 
 const onGameUpdate = function (event) {
   // Checks if tile is free
