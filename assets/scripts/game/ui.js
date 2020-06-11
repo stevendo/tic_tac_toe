@@ -30,7 +30,7 @@ const gameUpdateSuccess = function (responseData) {
   $('#message').text('Game Updated!')
   $('#message').show()
   $('#message').removeClass().addClass('success')
-  console.log(responseData, 'identify')
+  console.log(responseData, 'What happening when updated')
 }
 
 const gameUpdateFailure = function () {

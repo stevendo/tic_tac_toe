@@ -13,7 +13,7 @@ const startNewGame = function(formData) {
   })
 }
 
-const gameUpdate = function (gamePiece, gameIndex) {
+const gameUpdate = function (gamePiece, gameIndex, gameWin) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game._id,
@@ -26,7 +26,7 @@ const gameUpdate = function (gamePiece, gameIndex) {
           'index': gameIndex,
           'value': gamePiece
         },
-        'over': false
+        'over': gameWin
       }
     }
   })
