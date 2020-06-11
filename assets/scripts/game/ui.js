@@ -11,7 +11,9 @@ const startNewGameSuccess = function (responseData) {
   $('#message').show()
   $('#message').removeClass().addClass('success')
   $('#game-board').show()
-  $('#start-new-game').hide()
+  // $('#start-new-game').hide()
+
+  console.log(responseData, 'what is this?')
 }
 
 const startNewGameFailure = function () {
@@ -20,9 +22,9 @@ const startNewGameFailure = function () {
   $('#message').show().removeClass().addClass('failure')
 }
 
-const clickTile = function () {
-  $(event.target).text('x')
-}
+// const clickTile = function () {
+//   $(event.target).text('x')
+// }
 
 const gameUpdateSuccess = function (responseData) {
   $('form').trigger('reset')
@@ -41,7 +43,7 @@ const gameUpdateFailure = function () {
 module.exports = {
   startNewGameSuccess: startNewGameSuccess,
   startNewGameFailure: startNewGameFailure,
-  clickTile: clickTile,
+  // clickTile: clickTile,
   gameUpdateSuccess: gameUpdateSuccess,
   gameUpdateFailure: gameUpdateFailure
 }

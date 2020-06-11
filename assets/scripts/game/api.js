@@ -4,7 +4,7 @@ const store = require('./../store')
 
 const startNewGame = function(formData) {
   return $.ajax({
-    method: 'post',
+    method: 'POST',
     url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -13,18 +13,18 @@ const startNewGame = function(formData) {
   })
 }
 
-const gameUpdate = function(formData) {
+const gameUpdate = function (gamePiece, gameIndex) {
   return $.ajax({
-    method: 'update',
+    method: 'PATCH',
     url: config.apiUrl + '/games' + store.game._id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
       'game': {
-        'cell': {
-          'index': formData,
-          'value': formData
+        'cell': { // maybe cells
+          'index': gameIndex,
+          'value': gamePiece
         },
         'over': false
       }
