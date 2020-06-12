@@ -9,8 +9,11 @@ const startNewGameSuccess = function (responseData) {
   $('#message').show()
   $('#message').removeClass().addClass('success')
   $('#game-board').show()
-  // $('#start-new-game').hide()
-  // console.log(responseData, 'what is this?')
+  $('#start-new-game')
+  console.log(responseData, 'is this a new game')
+  $('.content').text('')
+  $('.content').removeClass('taken').addClass('free')
+  $('#status-message').text('Get Ready! Tic Tac Toe!!!')
   store.game = responseData.game
 }
 

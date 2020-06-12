@@ -1,8 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
-$alt-color: $cyan;
-$body-bg-color: $gray-200;
-$font-color: $light;
+// $alt-color: $cyan;
+// $body-bg-color: $gray-200;
+// $font-color: $light;
 
 // .box {
 //   align-items: center;
@@ -17,14 +17,14 @@ $font-color: $light;
 //   flex-wrap: wrap;
 // }
 
-.grid {
-    margin: 0 auto;
-    width: 80vw;
-    max-width: 60vh;
-    height: 80vw;
-    max-height: 60vh;
-    font-size: 1rem;
-}
+// .grid {
+//     margin: 0 auto;
+//     width: 80vw;
+//     max-width: 60vh;
+//     height: 80vw;
+//     max-height: 60vh;
+//     font-size: 5rem;
+// }
 .row {
     display: flex;
 }
@@ -32,6 +32,7 @@ $font-color: $light;
     background: navy;
     margin: 5px;
     color: white;
+    font-size: 5rem;
     font-weight: bold;
     flex: 1 0 auto;
     position: relative;
@@ -53,10 +54,10 @@ $font-color: $light;
     justify-content: center;
 }
 
-.free {
-
-}
-
-.taken{
-
-}
+// .free {
+//
+// }
+//
+// .taken{
+//
+// }

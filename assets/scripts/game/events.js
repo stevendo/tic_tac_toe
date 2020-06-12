@@ -11,6 +11,13 @@ const onStartNewGame = function (event) {
   event.preventDefault()
   // const form = event.target
   // const data = getFormFields(form)
+
+  // reset game variables
+  gameModel = ['', '', '', '', '', '', '', '', '']
+  numTurns = 0
+  gameWin = false
+  winner = ''
+
   api.startNewGame()
     .then(ui.startNewGameSuccess)
     .catch(ui.startNewGameFailure)
@@ -19,12 +26,18 @@ const onStartNewGame = function (event) {
 let currentMove = 'X' // Tracks current move
 let gamePiece         // Parameter for game move
 let gameIndex         // Parameter for game tile
-let numTurns = 0         // Turn count
+let numTurns = 0      // Turn count
 let gameWin = false   // Boolean if game has been won
 let gameModel = ['', '', '', '', '', '', '', '', '']    // Local game representation
 let winner = ''            // Variable to assign winner O or X
 
 const onGameUpdate = function (event) {
+  // You can't click here messaging
+  if ($(event.target).hasClass('taken')) {
+    $('#status-message').text("You can't click there!")
+    return
+  }
+
   // Checks if tile is free
   if ($(event.target).hasClass('free')) {
     $(event.target).text(currentMove)
@@ -37,7 +50,7 @@ const onGameUpdate = function (event) {
     gamePiece = currentMove
     gameIndex = $(event.target).data('cell-index')
 
-    // Creating local model of the game to determine winner
+    // Update local model of the game to determine winner
     gameModel[$(event.target).data('cell-index')] = currentMove
 
     // Check for winner
@@ -46,6 +59,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -56,6 +71,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -66,6 +83,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -76,6 +95,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -86,6 +107,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -96,6 +119,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -106,6 +131,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -116,6 +143,8 @@ const onGameUpdate = function (event) {
       winner = currentMove
       // block unused tiles
       $('.content').removeClass('free').addClass('taken')
+      // Status message update
+      $('#status-message').text(winner + ' Wins!')
 
       // Update API
       api.gameUpdate(gamePiece, gameIndex, gameWin)
@@ -130,16 +159,23 @@ const onGameUpdate = function (event) {
       }
       // Count number of turns
       numTurns++
+
+      // You can't click here messaging
+      // if ($(event.target).hasClass('taken')) {
+      //   $('#status-message').text("You can't click there!")
+      //   numTurns-- // must subtract b/c click can't be counted
+      // }
+
       // If number of turns reaches 9, it's a draw
       if (numTurns <= 8) {
       // Messaging for next move
-        $('#player-turn').text(currentMove + ' Is the next turn')
+        $('#status-message').text(currentMove + ' Is the next turn')
         // Update API
         api.gameUpdate(gamePiece, gameIndex, gameWin)
           .then(ui.gameUpdateSuccess)
           .catch(ui.gameUpdateFailure)
       } else {
-        $('#player-turn').text("It's a Draw!")
+        $('#status-message').text("It's a Draw!")
       }
     }
     console.log(gameModel, 'game model')

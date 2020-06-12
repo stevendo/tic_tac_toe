@@ -2,6 +2,15 @@
 
 const store = require('./../store')
 
+$('#sign-out-banner').hide()
+$('#sign-out').hide()
+// $('#sign-out-banner').hide()
+// $('#sign-out').hide()
+$('#start-new-game-banner').hide()
+$('#start-new-game').hide()
+$('#change-password-banner').hide()
+$('#change-password').hide()
+
 const createSuccess = function (responseData) {
   $('form').trigger('reset')
 
@@ -23,6 +32,17 @@ const signInSuccess = function (responseData) {
   $('#message').show()
   $('#message').removeClass().addClass('success')
   store.user = responseData.user
+  $('#sign-up').hide()
+  $('#sign-up-banner').hide()
+  $('#sign-in').hide()
+  $('#sign-in-banner').hide()
+  $('#sign-out-banner').show()
+  $('#sign-out').show()
+  $('#change-password-banner').show()
+  $('#change-password').show()
+  $('#start-new-game-banner').show()
+  $('#start-new-game').show()
+  $('#status-message').text('Hello!')
 }
 
 const signInFailure = function () {
@@ -52,6 +72,17 @@ const signOutSuccess = function (responseData) {
   $('#message').show()
   $('#message').removeClass().addClass('success')
   $('#game-board').hide()
+  $('#sign-up').show()
+  $('#sign-up-banner').show()
+  $('#sign-in').show()
+  $('#sign-in-banner').show()
+  $('#sign-out-banner').hide()
+  $('#sign-out').hide()
+  $('#start-new-game-banner').hide()
+  $('#start-new-game').hide()
+  $('#change-password-banner').hide()
+  $('#change-password').hide()
+  $('#status-message').text('Bye!')
 }
 
 const signOutFailure = function () {
