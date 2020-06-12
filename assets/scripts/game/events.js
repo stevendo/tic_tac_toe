@@ -33,7 +33,10 @@ let winner = ''            // Variable to assign winner O or X
 
 const onGameUpdate = function (event) {
   // You can't click here messaging
-  if ($(event.target).hasClass('taken')) {
+  if (gameWin === true) {
+    $('#status-message').text('Game is over! Stop Clicking!')
+    return
+  } else if ($(event.target).hasClass('taken')) {
     $('#status-message').text("You can't click there!")
     return
   }

@@ -17,6 +17,7 @@ const createSuccess = function (responseData) {
   $('#message').text('Sign up successfully!')
   $('#message').show()
   $('#message').removeClass().addClass('success')
+  $('#status-message').text('Hello!')
 }
 
 const createFailure = function () {
