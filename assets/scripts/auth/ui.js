@@ -4,12 +4,11 @@ const store = require('./../store')
 
 $('#sign-out-banner').hide()
 $('#sign-out').hide()
-// $('#sign-out-banner').hide()
-// $('#sign-out').hide()
 $('#start-new-game-banner').hide()
 $('#start-new-game').hide()
 $('#change-password-banner').hide()
 $('#change-password').hide()
+$('#game-board').hide()
 
 const createSuccess = function (responseData) {
   $('form').trigger('reset')

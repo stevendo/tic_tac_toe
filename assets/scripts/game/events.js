@@ -163,12 +163,6 @@ const onGameUpdate = function (event) {
       // Count number of turns
       numTurns++
 
-      // You can't click here messaging
-      // if ($(event.target).hasClass('taken')) {
-      //   $('#status-message').text("You can't click there!")
-      //   numTurns-- // must subtract b/c click can't be counted
-      // }
-
       // If number of turns reaches 9, it's a draw
       if (numTurns <= 8) {
       // Messaging for next move

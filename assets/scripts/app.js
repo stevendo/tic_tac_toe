@@ -14,7 +14,6 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
-  $('#game-board').hide()
   $('#start-new-game').on('click', gameEvents.onStartNewGame)
   // $('[data-cell-index=0]').on('click', gameEvents.onGameUpdate)
   // $('[data-cell-index=1]').on('click', gameEvents.onGameUpdate)
