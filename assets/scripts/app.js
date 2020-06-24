@@ -25,4 +25,5 @@ $(() => {
   // $('[data-cell-index=7]').on('click', gameEvents.onGameUpdate)
   // $('[data-cell-index=8]').on('click', gameEvents.onGameUpdate)
   $('.content').on('click', gameEvents.onGameUpdate)
+  $('#game-index').on('click', gameEvents.onGameIndex)
 })

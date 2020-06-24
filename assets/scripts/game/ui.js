@@ -10,7 +10,7 @@ const startNewGameSuccess = function (responseData) {
   $('#message').removeClass().addClass('success')
   $('#game-board').show()
   $('#start-new-game')
-  console.log(responseData, 'is this a new game')
+  // console.log(responseData, 'is this a new game')
   $('.content').text('')
   $('.content').removeClass('taken').addClass('free')
   $('#status-message').text('Get Ready! Tic Tac Toe!!!')
@@ -33,7 +33,7 @@ const gameUpdateSuccess = function (responseData) {
   $('#message').text('Game Updated!')
   $('#message').show()
   $('#message').removeClass().addClass('success')
-  console.log(responseData, 'What happening when updated')
+  // console.log(responseData, 'What happening when updated')
 }
 
 const gameUpdateFailure = function () {
@@ -42,10 +42,28 @@ const gameUpdateFailure = function () {
   $('#message').show().removeClass().addClass('failure')
 }
 
+const getIndexSuccess = function (responseData) {
+  $('form').trigger('reset')
+
+  $('#message').text('Game Index Found!')
+  $('#message').show()
+  $('#message').removeClass().addClass('success')
+  // console.log(responseData.games.length, 'is this game length')
+  $('#status-message').text(`You've played ${responseData.games.length} games!`)
+}
+
+const getIndexFailure = function () {
+  $('form').trigger('reset')
+  $('#message').text('Game Index Not Found')
+  $('#message').show().removeClass().addClass('failure')
+}
+
 module.exports = {
   startNewGameSuccess: startNewGameSuccess,
   startNewGameFailure: startNewGameFailure,
   // clickTile: clickTile,
   gameUpdateSuccess: gameUpdateSuccess,
-  gameUpdateFailure: gameUpdateFailure
+  gameUpdateFailure: gameUpdateFailure,
+  getIndexSuccess: getIndexSuccess,
+  getIndexFailure: getIndexFailure
 }

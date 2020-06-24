@@ -32,7 +32,18 @@ const gameUpdate = function (gamePiece, gameIndex, gameWin) {
   })
 }
 
+const gameIndex = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   startNewGame: startNewGame,
-  gameUpdate: gameUpdate
+  gameUpdate: gameUpdate,
+  gameIndex: gameIndex
 }

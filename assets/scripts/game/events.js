@@ -4,13 +4,10 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
-
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const onStartNewGame = function (event) {
+const onStartNewGame = function () {
   event.preventDefault()
-  // const form = event.target
-  // const data = getFormFields(form)
 
   // reset game variables
   gameModel = ['', '', '', '', '', '', '', '', '']
@@ -33,7 +30,7 @@ let winner = ''            // Variable to assign winner O or X
 
 const onGameUpdate = function (event) {
   // You can't click here messaging
-  if (gameWin === true) {
+  if (gameWin === true || numTurns === 9) {
     $('#status-message').text('Game is over! Stop Clicking!')
     return
   } else if ($(event.target).hasClass('taken')) {
@@ -175,15 +172,24 @@ const onGameUpdate = function (event) {
         $('#status-message').text("It's a Draw!")
       }
     }
-    console.log(gameModel, 'game model')
-    console.log(gameWin, 'game win')
+    // console.log(gameModel, 'game model')
+    // console.log(gameWin, 'game win')
 }
   // api.gameUpdate(gamePiece, gameIndex, gameWin)
   //   .then(ui.gameUpdateSuccess)
   //   .catch(ui.gameUpdateFailure)
 }
 
+const onGameIndex = function (event) {
+  event.preventDefault()
+
+  api.gameIndex()
+    .then(ui.getIndexSuccess)
+    .catch(ui.getIndexFailure)
+}
+
 module.exports = {
   onStartNewGame: onStartNewGame,
-  onGameUpdate: onGameUpdate
+  onGameUpdate: onGameUpdate,
+  onGameIndex: onGameIndex
 }

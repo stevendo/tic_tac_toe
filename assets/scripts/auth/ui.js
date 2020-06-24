@@ -9,6 +9,8 @@ $('#start-new-game').hide()
 $('#change-password-banner').hide()
 $('#change-password').hide()
 $('#game-board').hide()
+$('#game-index-banner').hide()
+$('#game-index').hide()
 
 const createSuccess = function (responseData) {
   $('form').trigger('reset')
@@ -43,6 +45,8 @@ const signInSuccess = function (responseData) {
   $('#start-new-game-banner').show()
   $('#start-new-game').show()
   $('#status-message').text('Hello!')
+  $('#game-index-banner').show()
+  $('#game-index').show()
 }
 
 const signInFailure = function () {
