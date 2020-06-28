@@ -14,7 +14,7 @@ const onStartNewGame = function () {
   numTurns = 0
   gameWin = false
   winner = ''
-
+  currentMove = 'X'
   api.startNewGame()
     .then(ui.startNewGameSuccess)
     .catch(ui.startNewGameFailure)

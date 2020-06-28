@@ -87,6 +87,8 @@ const signOutSuccess = function (responseData) {
   $('#change-password-banner').hide()
   $('#change-password').hide()
   $('#status-message').text('Bye!')
+  $('#game-index-banner').hide()
+  $('#game-index').hide()
   // store.user = null
 }
 
