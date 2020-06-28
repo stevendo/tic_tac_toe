@@ -87,6 +87,7 @@ const signOutSuccess = function (responseData) {
   $('#change-password-banner').hide()
   $('#change-password').hide()
   $('#status-message').text('Bye!')
+  // store.user = null
 }
 
 const signOutFailure = function () {
